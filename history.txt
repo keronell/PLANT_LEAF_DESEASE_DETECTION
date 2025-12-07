@@ -1,0 +1,15 @@
+## Fix: RandomErasing Transform Order Issue
+
+**Problem:**
+`AttributeError: 'Image' object has no attribute 'shape'` occurred because `T.RandomErasing` was applied to a PIL Image object in `transform_pv_field_style`. `RandomErasing` requires a tensor input, not a PIL Image.
+
+**Solution:**
+Moved `T.ToTensor()` before `T.RandomErasing()` in the `transform_pv_field_style` transform. The correct order is:
+1. PIL Image transforms (Resize, RandomHorizontalFlip, RandomRotation, ColorJitter, RandomAffine)
+2. `T.ToTensor()` - converts PIL Image to tensor
+3. `T.RandomErasing()` - operates on tensor
+4. `T.Normalize()` - normalizes tensor
+
+This ensures `RandomErasing` receives a tensor with a `.shape` attribute instead of a PIL Image object.
+
+
