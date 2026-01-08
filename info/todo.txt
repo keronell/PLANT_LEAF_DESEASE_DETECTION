@@ -1,0 +1,17 @@
+# print a table of all types of desease and plants 
+
+
+#   create a list of base augmentations that were performed and the list of augmentation in the "...with_augmentations" dataset
+#   compare the results
+#   adjust the "from field" image dataset 
+#   find a way to improve basic model results on the "from field" images
+
+
+
+
+# insert Plant_doc dataset for validation 
+# run validation test on base model (that gave 99% accuracy)                            -   DONE (partly)
+# show that the result of the model is much lower than initial one                      -   DONE (partly)
+
+#   EfficientNet perfomed better on the dataset without_augmentations but perfomed slightly worse on the dataset with_augmentations
+#   ViT perfomed worse on the dataset without_augmentations but improved alot on the data with_augmentations

@@ -1,0 +1,340 @@
+================================================================================
+FINE-TUNING EXPERIMENTS: RESULTS SUMMARY
+================================================================================
+
+This document summarizes the results from domain adaptation fine-tuning experiments
+on the plant leaf disease detection task.
+
+================================================================================
+EXPERIMENT OVERVIEW
+================================================================================
+
+1. BASELINE (from 5_fine_tune_models.ipynb)
+   - Initial fine-tuning approach
+   - Combined datasets with basic augmentation
+   - 5 epochs of fine-tuning
+
+2. QUICK WINS (5.1_fine_tune_models_quick_wins.ipynb)
+   - Enhanced aggressive field augmentation
+   - Domain-balanced sampling (60% PV, 40% Field, 3x field weight)
+   - Extended fine-tuning (12 epochs)
+   - Weighted validation F1 (40% main, 30% plant_doc, 30% fieldplant)
+   - Layer-wise learning rates
+
+3. PROGRESSIVE DOMAIN ADAPTATION (5.2_progressive_domain_adaptation.ipynb)
+   - Progressive field data ratio (10% → 50% over epochs)
+   - Increased field sample weight (5x)
+   - Extended fine-tuning (15 epochs)
+   - Weighted validation F1 (40% main, 30% plant_doc, 30% fieldplant)
+   - Layer-wise learning rates
+
+================================================================================
+EXPERIMENT 1: BASELINE FINE-TUNING
+================================================================================
+
+Source: 5_fine_tune_models.ipynb
+
+Configuration:
+  - Initial fine-tuning approach
+  - Combined datasets with basic augmentation
+  - 5 epochs of fine-tuning
+  - Basic field augmentation (mild)
+
+Results (Final Evaluation - No TTA):
+────────────────────────────────────────────────────────────────────────────
+Main Dataset (PlantVillage):
+  - F1 Score: 0.9894 (98.94%)
+  - Accuracy: ~0.99 (99%)
+  - Samples: 6,148
+  - Status: Baseline performance
+
+Plant_doc Dataset:
+  - F1 Score: 0.0689 (6.89%)
+  - Accuracy: ~0.07 (7%)
+  - Samples: 504
+  - Status: Poor performance, severe domain shift
+
+FieldPlant Dataset:
+  - F1 Score: 0.0294 (2.94%)
+  - Accuracy: ~0.03 (3%)
+  - Samples: 928
+  - Status: Very poor performance, severe domain shift
+
+Training Details:
+  - Training Epochs: 5
+  - Augmentation: Basic (mild field augmentation)
+  - Weighted Validation F1: N/A (not used in baseline)
+
+Key Observations:
+  - Maintained high performance on main dataset
+  - Severe performance drop on field datasets
+  - Clear evidence of domain shift problem
+  - Indicated need for more aggressive strategies
+
+================================================================================
+EXPERIMENT 2: QUICK WINS STRATEGY
+================================================================================
+
+Source: 5.1_fine_tune_models_quick_wins.ipynb
+
+Configuration:
+  - Enhanced aggressive field augmentation
+  - Domain-balanced sampling (60% PV, 40% Field, 3x field weight)
+  - Extended fine-tuning (12 epochs)
+  - Weighted validation F1 (40% main, 30% plant_doc, 30% fieldplant)
+  - Layer-wise learning rates
+  - Mixed precision training (FP16)
+
+Results (Final Evaluation - No TTA):
+────────────────────────────────────────────────────────────────────────────
+Main Dataset (PlantVillage):
+  - F1 Score: 0.9972 (99.72%)
+  - Accuracy: 0.9979 (99.79%)
+  - Samples: 6,148
+  - Improvement: +0.79% over baseline
+  - Status: Maintained excellent performance, slight improvement
+
+Plant_doc Dataset:
+  - F1 Score: 0.5974 (59.74%)
+  - Accuracy: 0.6190 (61.90%)
+  - Samples: 504
+  - Improvement: +767.1% over baseline
+  - Status: Significant improvement achieved
+
+FieldPlant Dataset:
+  - F1 Score: 0.8602 (86.02%)
+  - Accuracy: 0.9903 (99.03%)
+  - Samples: 928
+  - Improvement: +2825.7% over baseline
+  - Status: Excellent improvement, near-perfect accuracy
+
+Training Details:
+  - Best Weighted F1: 0.8361 (Epoch 10/12)
+  - Training Epochs: 12
+  - Field Sample Weight: 3x
+  - Domain Ratio: 60% PV / 40% Field (fixed)
+  - Best Epoch: 10/12
+
+Key Findings:
+  ✓ Excellent performance across all datasets
+  ✓ Best FieldPlant results (86.02% F1, 99.03% accuracy)
+  ✓ Strong Plant_doc improvement (59.74% F1)
+  ✓ Excellent main dataset performance (99.72% F1)
+  ✓ Achieved best weighted F1 score (0.8361)
+
+================================================================================
+EXPERIMENT 3: PROGRESSIVE DOMAIN ADAPTATION
+================================================================================
+
+Source: 5.2_progressive_domain_adaptation.ipynb
+
+Configuration:
+  - Progressive field data ratio (10% → 50% over epochs)
+  - Increased field sample weight (5x)
+  - Extended fine-tuning (15 epochs, early stopping at 12)
+  - Weighted validation F1 (40% main, 30% plant_doc, 30% fieldplant)
+  - Layer-wise learning rates
+  - Mixed precision training (FP16)
+  - Same aggressive field augmentation as Quick Wins
+
+Results (Final Evaluation - No TTA):
+────────────────────────────────────────────────────────────────────────────
+Main Dataset (PlantVillage):
+  - F1 Score: 0.9978 (99.78%)
+  - Accuracy: 0.9984 (99.84%)
+  - Samples: 6,148
+  - Improvement: +0.85% over baseline
+  - Status: Excellent performance, best main dataset performance
+
+Plant_doc Dataset:
+  - F1 Score: 0.6132 (61.32%)
+  - Accuracy: 0.6349 (63.49%)
+  - Samples: 504
+  - Improvement: +790.0% over baseline
+  - Status: Strong improvement, best Plant_doc performance
+
+FieldPlant Dataset:
+  - F1 Score: 0.8320 (83.20%)
+  - Accuracy: 0.9731 (97.31%)
+  - Samples: 928
+  - Improvement: +2729.9% over baseline
+  - Status: Excellent improvement, slightly lower than Quick Wins
+
+Training Details:
+  - Best Weighted F1: 0.8325 (Epoch 9/15)
+  - Training Epochs: 12 (early stopping, max 15)
+  - Field Sample Weight: 5x
+  - Field Ratio Progression: 10% → 50% over epochs (reached ~44% at epoch 12)
+  - Progressive adaptation strategy
+  - Best Epoch: 9/15
+
+Key Findings:
+  ✓ Excellent improvement over baseline
+  ✓ Strong Plant_doc performance (61.32% F1) - best among all experiments
+  ✓ Excellent FieldPlant results (83.20% F1)
+  ✓ Best main dataset performance (99.78% F1) - best among all experiments
+  ✓ Achieved competitive weighted F1 score (0.8325)
+  ⚠ Slightly lower FieldPlant F1 than Quick Wins (-2.8%)
+
+================================================================================
+COMPARISON ACROSS EXPERIMENTS
+================================================================================
+
+Table 1: Comprehensive Results Summary (Experiments as Rows)
+┌─────────────────────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────┐
+│ Experiment                  │ Main F1      │ Main Acc     │ Plant_doc F1 │ Plant_doc Acc│ FieldPlant F1│FieldPlant Acc│ Weighted F1  │
+├─────────────────────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+│ 1. Baseline                 │ 0.9894       │ ~0.99        │ 0.0689       │ ~0.07        │ 0.0294       │ ~0.03        │ N/A          │
+│ 2. Quick Wins               │ 0.9972       │ 0.9979       │ 0.5974       │ 0.6190       │ 0.8602       │ 0.9903       │ 0.8361       │
+│ 3. Progressive Adaptation   │ 0.9978       │ 0.9984       │ 0.6132       │ 0.6349       │ 0.8320       │ 0.9731       │ 0.8325       │
+└─────────────────────────────┴──────────────┴──────────────┴──────────────┴──────────────┴──────────────┴──────────────┴──────────────┘
+
+Table 2: Main Dataset (PlantVillage) Performance Comparison
+┌─────────────────────────────┬──────────────┬──────────────┬──────────────┐
+│ Experiment                  │ F1 Score     │ Accuracy     │ Change vs    │
+│                             │              │              │ Baseline     │
+├─────────────────────────────┼──────────────┼──────────────┼──────────────┤
+│ 1. Baseline                 │ 0.9894       │ ~0.99        │ -            │
+│ 2. Quick Wins               │ 0.9972       │ 0.9979       │ +0.79%       │
+│ 3. Progressive Adaptation   │ 0.9978       │ 0.9984       │ +0.85%       │
+└─────────────────────────────┴──────────────┴──────────────┴──────────────┘
+
+Table 3: Plant_doc Dataset Performance Comparison
+┌─────────────────────────────┬──────────────┬──────────────┬──────────────┐
+│ Experiment                  │ F1 Score     │ Accuracy     │ Improvement  │
+│                             │              │              │ vs Baseline  │
+├─────────────────────────────┼──────────────┼──────────────┼──────────────┤
+│ 1. Baseline                 │ 0.0689       │ ~0.07        │ -            │
+│ 2. Quick Wins               │ 0.5974       │ 0.6190       │ +767.1%      │
+│ 3. Progressive Adaptation   │ 0.6132       │ 0.6349       │ +790.0%      │
+└─────────────────────────────┴──────────────┴──────────────┴──────────────┘
+
+Table 4: FieldPlant Dataset Performance Comparison
+┌─────────────────────────────┬──────────────┬──────────────┬──────────────┐
+│ Experiment                  │ F1 Score     │ Accuracy     │ Improvement  │
+│                             │              │              │ vs Baseline  │
+├─────────────────────────────┼──────────────┼──────────────┼──────────────┤
+│ 1. Baseline                 │ 0.0294       │ ~0.03        │ -            │
+│ 2. Quick Wins               │ 0.8602       │ 0.9903       │ +2825.7%     │
+│ 3. Progressive Adaptation   │ 0.8320       │ 0.9731       │ +2729.9%     │
+└─────────────────────────────┴──────────────┴──────────────┴──────────────┘
+
+Table 5: Weighted Validation F1 Score Comparison
+┌─────────────────────────────┬──────────────┬──────────────────────────────┐
+│ Experiment                  │ Weighted F1  │ Notes                        │
+├─────────────────────────────┼──────────────┼──────────────────────────────┤
+│ 1. Baseline                 │ N/A          │ Not used in baseline         │
+│ 2. Quick Wins               │ 0.8361       │ Best epoch: 10/12            │
+│ 3. Progressive Adaptation   │ 0.8325       │ Best epoch: 9/15 (stopped at 12)│
+└─────────────────────────────┴──────────────┴──────────────────────────────┘
+
+Summary of Improvements:
+────────────────────────────────────────────────────────────────────────────
+Quick Wins vs Baseline:
+  - Main Dataset: +0.79% F1 improvement
+  - Plant_doc: +767.1% F1 improvement
+  - FieldPlant: +2825.7% F1 improvement
+  - Weighted F1: 0.8361
+
+Progressive Adaptation vs Baseline:
+  - Main Dataset: +0.85% F1 improvement (best)
+  - Plant_doc: +790.0% F1 improvement (best)
+  - FieldPlant: +2729.9% F1 improvement
+  - Weighted F1: 0.8325
+
+Quick Wins vs Progressive Adaptation:
+  - Main Dataset: Progressive better (+0.06% F1)
+  - Plant_doc: Progressive better (+1.6% F1)
+  - FieldPlant: Quick Wins better (+2.8% F1)
+  - Weighted F1: Quick Wins better (+0.36%)
+
+================================================================================
+TECHNIQUES COMPARISON
+================================================================================
+
+Table 6: Techniques Applied by Experiment
+┌─────────────────────────────┬──────────────┬──────────────┬──────────────────────────────┐
+│ Technique                   │ Baseline     │ Quick Wins   │ Progressive Adaptation      │
+├─────────────────────────────┼──────────────┼──────────────┼──────────────────────────────┤
+│ Field Augmentation          │ Mild         │ Aggressive   │ Aggressive                  │
+│ Domain Sampling             │ Combined     │ Fixed 60/40  │ Progressive 10%→50%         │
+│ Field Sample Weight         │ Standard     │ 3x           │ 5x                          │
+│ Training Epochs             │ 5            │ 12           │ 12 (early stop, max 15)     │
+│ Weighted Validation F1      │ No           │ Yes          │ Yes                        │
+│ Layer-wise Learning Rates   │ No           │ Yes          │ Yes                        │
+│ Mixed Precision (FP16)      │ Yes          │ Yes          │ Yes                        │
+└─────────────────────────────┴──────────────┴──────────────┴──────────────────────────────┘
+
+================================================================================
+KEY FINDINGS
+================================================================================
+
+1. BASELINE EXPERIMENT
+   - Maintained high performance on main dataset (98.94% F1)
+   - Severe domain shift on field datasets (2.94-6.89% F1)
+   - Demonstrated clear need for domain adaptation techniques
+
+2. QUICK WINS EXPERIMENT
+   - Excellent performance across all datasets
+   - Best FieldPlant results (86.02% F1, 99.03% accuracy)
+   - Strong Plant_doc improvement (59.74% F1)
+   - Excellent main dataset performance (99.72% F1)
+   - Achieved best weighted F1 score (0.8361)
+   - Fixed domain sampling strategy proved effective
+
+3. PROGRESSIVE DOMAIN ADAPTATION EXPERIMENT
+   - Excellent improvement over baseline
+   - Best Plant_doc performance (61.32% F1) among all experiments
+   - Excellent FieldPlant results (83.20% F1)
+   - Best main dataset performance (99.78% F1) among all experiments
+   - Achieved competitive weighted F1 score (0.8325)
+   - Progressive strategy proved effective
+   - Slightly lower FieldPlant F1 than Quick Wins (-2.8%)
+
+4. OVERALL COMPARISON
+   - Both fine-tuning approaches show excellent results, with different strengths
+   - Progressive Adaptation: Better main dataset (+0.06% F1) and Plant_doc (+1.6% F1)
+   - Quick Wins: Better FieldPlant (+2.8% F1) and slightly better weighted F1 (+0.36%)
+   - Both approaches significantly outperform baseline
+   - Main dataset performance improved in both approaches
+   - All experiments maintained excellent main dataset performance (>99%)
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+
+1. PRIMARY RECOMMENDATION: Both fine-tuning approaches are excellent
+   - Quick Wins (Experiment 2): Best FieldPlant performance (86.02% F1)
+   - Progressive Adaptation (Experiment 3): Best main dataset and Plant_doc performance
+   - Choose based on priority: FieldPlant → Quick Wins, Plant_doc → Progressive
+
+2. PROGRESSIVE ADAPTATION: Highly successful
+   - Achieved competitive results across all datasets
+   - Best main dataset performance (99.78% F1)
+   - Strong Plant_doc improvement (61.32% F1)
+   - Progressive strategy proved effective
+
+3. FUTURE WORK:
+   - Explore ensemble of both approaches (combining strengths)
+   - Test progressive adaptation with different field ratio schedules
+   - Consider domain-specific batch normalization
+   - Implement MMD loss for feature alignment
+   - Investigate why Quick Wins has better FieldPlant but Progressive has better Plant_doc
+   - Further improve Plant_doc performance (currently 61-62% F1)
+
+================================================================================
+NOTES
+================================================================================
+
+- All results reported WITHOUT Test-Time Augmentation (TTA)
+- TTA was found to degrade performance in both experiments
+- Results are based on standard evaluation (no augmentation at test time)
+- Training was performed with mixed precision (FP16) for efficiency
+- Models were fine-tuned from EfficientNet-B0 base model
+- Evaluation performed on test sets: Main (6,148 samples), Plant_doc (504 samples), FieldPlant (928 samples)
+- Baseline refers to the original EfficientNet-B0 model trained only on PlantVillage dataset
+- All fine-tuning experiments started from the baseline model checkpoint
+
+================================================================================
+END OF SUMMARY
+================================================================================

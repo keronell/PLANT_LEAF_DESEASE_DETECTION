@@ -1,0 +1,527 @@
+================================================================================
+                    PLANT LEAF DISEASE DETECTION - DATASETS
+                    Complete Class Diagram by Plant Name
+================================================================================
+
+This document shows all classes from three datasets:
+  1. Main Dataset: Plant_leaf_diseases_dataset_with_augmentation
+  2. Secondary Dataset 1: Plant_doc
+  3. Secondary Dataset 2: FieldPlant
+
+================================================================================
+                              APPLE
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  ├── Apple___Apple_scab
+  ├── Apple___Black_rot
+  ├── Apple___Cedar_apple_rust
+  └── Apple___healthy
+
+Plant_doc Dataset:
+  ├── Apple_leaf (healthy)
+  ├── Apple_rust_leaf
+  └── Apple_Scab_Leaf
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Apple: 7
+  - Main Dataset: 4
+  - Plant_doc: 3
+  - FieldPlant: 0
+
+================================================================================
+                              CORN / MAIZE
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  ├── Corn___Cercospora_leaf_spot Gray_leaf_spot
+  ├── Corn___Common_rust
+  ├── Corn___healthy
+  └── Corn___Northern_Leaf_Blight
+
+Plant_doc Dataset:
+  ├── Corn_Gray_leaf_spot
+  ├── Corn_leaf_blight
+  └── Corn_rust_leaf
+
+FieldPlant Dataset:
+  ├── Corn___Brown_Spots
+  ├── Corn___Charcoal
+  ├── Corn___Chlorotic_Leaf_Spot
+  ├── Corn___Gray_leaf_spot
+  ├── Corn___healthy
+  ├── Corn___Insects_Damages
+  ├── Corn___leaf_blight
+  ├── Corn___Mildew
+  ├── Corn___Purple_Discoloration
+  ├── Corn___rust_leaf
+  ├── Corn___Smut
+  ├── Corn___Streak
+  ├── Corn___Stripe
+  ├── Corn___Violet_Decoloration
+  ├── Corn___Yellow_Spots
+  └── Corn___Yellowing
+
+Total Classes for Corn: 22
+  - Main Dataset: 4
+  - Plant_doc: 3
+  - FieldPlant: 15
+
+================================================================================
+                              TOMATO
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  ├── Tomato___Bacterial_spot
+  ├── Tomato___Early_blight
+  ├── Tomato___healthy
+  ├── Tomato___Late_blight
+  ├── Tomato___Leaf_Mold
+  ├── Tomato___Septoria_leaf_spot
+  ├── Tomato___Spider_mites Two-spotted_spider_mite
+  ├── Tomato___Target_Spot
+  ├── Tomato___Tomato_mosaic_virus
+  └── Tomato___Tomato_Yellow_Leaf_Curl_Virus
+
+Plant_doc Dataset:
+  ├── Tomato_Early_blight_leaf
+  ├── Tomato_leaf (healthy)
+  ├── Tomato_leaf_bacterial_spot
+  ├── Tomato_leaf_late_blight
+  ├── Tomato_leaf_mosaic_virus
+  ├── Tomato_leaf_yellow_virus
+  ├── Tomato_mold_leaf
+  ├── Tomato_Septoria_leaf_spot
+  └── Tomato_two_spotted_spider_mites_leaf
+
+FieldPlant Dataset:
+  ├── Tomato___bacterial_wilt
+  ├── Tomato___blight_leaf
+  ├── Tomato___Brown_Spots
+  ├── Tomato___healthy
+  ├── Tomato___leaf_mosaic_virus
+  └── Tomato___leaf_yellow_virus
+
+Total Classes for Tomato: 25
+  - Main Dataset: 10
+  - Plant_doc: 9
+  - FieldPlant: 6
+
+================================================================================
+                              POTATO
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  ├── Potato___Early_blight
+  ├── Potato___healthy
+  └── Potato___Late_blight
+
+Plant_doc Dataset:
+  ├── Potato_leaf_early_blight
+  └── Potato_leaf_late_blight
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Potato: 5
+  - Main Dataset: 3
+  - Plant_doc: 2
+  - FieldPlant: 0
+
+================================================================================
+                              GRAPE
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  ├── Grape___Black_rot
+  ├── Grape___Esca_(Black_Measles)
+  ├── Grape___healthy
+  └── Grape___Leaf_blight_(Isariopsis_Leaf_Spot)
+
+Plant_doc Dataset:
+  ├── grape_leaf (healthy)
+  └── grape_leaf_black_rot
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Grape: 6
+  - Main Dataset: 4
+  - Plant_doc: 2
+  - FieldPlant: 0
+
+================================================================================
+                              PEACH
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  ├── Peach___Bacterial_spot
+  └── Peach___healthy
+
+Plant_doc Dataset:
+  └── Peach_leaf (healthy)
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Peach: 3
+  - Main Dataset: 2
+  - Plant_doc: 1
+  - FieldPlant: 0
+
+================================================================================
+                        PEPPER (Bell Pepper)
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  ├── Pepper,_bell___Bacterial_spot
+  └── Pepper,_bell___healthy
+
+Plant_doc Dataset:
+  ├── Bell_pepper_leaf (healthy)
+  └── Bell_pepper_leaf_spot
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Pepper: 4
+  - Main Dataset: 2
+  - Plant_doc: 2
+  - FieldPlant: 0
+
+================================================================================
+                              CHERRY
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  ├── Cherry___healthy
+  └── Cherry___Powdery_mildew
+
+Plant_doc Dataset:
+  └── Cherry_leaf (healthy)
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Cherry: 3
+  - Main Dataset: 2
+  - Plant_doc: 1
+  - FieldPlant: 0
+
+================================================================================
+                            BLUEBERRY
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  └── Blueberry___healthy
+
+Plant_doc Dataset:
+  └── Blueberry_leaf (healthy)
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Blueberry: 2
+  - Main Dataset: 1
+  - Plant_doc: 1
+  - FieldPlant: 0
+
+================================================================================
+                            STRAWBERRY
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  ├── Strawberry___healthy
+  └── Strawberry___Leaf_scorch
+
+Plant_doc Dataset:
+  └── Strawberry_leaf (healthy)
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Strawberry: 3
+  - Main Dataset: 2
+  - Plant_doc: 1
+  - FieldPlant: 0
+
+================================================================================
+                              SQUASH
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  └── Squash___Powdery_mildew
+
+Plant_doc Dataset:
+  └── Squash_Powdery_mildew_leaf
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Squash: 2
+  - Main Dataset: 1
+  - Plant_doc: 1
+  - FieldPlant: 0
+
+================================================================================
+                             SOYBEAN
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  └── Soybean___healthy
+
+Plant_doc Dataset:
+  └── Soyabean_leaf (healthy)
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Soybean: 2
+  - Main Dataset: 1
+  - Plant_doc: 1
+  - FieldPlant: 0
+
+================================================================================
+                              ORANGE
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  └── Orange___Haunglongbing_(Citrus_greening)
+
+Plant_doc Dataset:
+  └── (No classes)
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Orange: 1
+  - Main Dataset: 1
+  - Plant_doc: 0
+  - FieldPlant: 0
+
+================================================================================
+                             RASPBERRY
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  └── Raspberry___healthy
+
+Plant_doc Dataset:
+  └── Raspberry_leaf (healthy)
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Raspberry: 2
+  - Main Dataset: 1
+  - Plant_doc: 1
+  - FieldPlant: 0
+
+================================================================================
+                         CASSAVA / MANIOC
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  └── (No classes)
+
+Plant_doc Dataset:
+  └── (No classes)
+
+FieldPlant Dataset:
+  ├── Cassava___Bacterial_Blight
+  ├── Cassava___Brown_Leaf_Spot
+  ├── Cassava___healthy
+  ├── Cassava___Mosaic
+  └── Cassava___Root_Rot
+
+Total Classes for Cassava: 5
+  - Main Dataset: 0
+  - Plant_doc: 0
+  - FieldPlant: 5
+
+================================================================================
+                        BACKGROUND / OTHER
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  └── Background_without_leaves
+
+Plant_doc Dataset:
+  └── (No classes)
+
+FieldPlant Dataset:
+  └── (No classes)
+
+Total Classes for Background: 1
+  - Main Dataset: 1
+  - Plant_doc: 0
+  - FieldPlant: 0
+
+================================================================================
+                            SUMMARY STATISTICS
+================================================================================
+
+Total Plants: 15
+  Apple, Corn, Tomato, Potato, Grape, Peach, Pepper, Cherry, Blueberry,
+  Strawberry, Squash, Soybean, Orange, Raspberry, Cassava
+
+Total Classes by Dataset:
+  Main Dataset:        39 classes
+  Plant_doc:          30 classes
+  FieldPlant:          27 classes
+
+Total Unique Classes Across All Datasets: ~96 classes (with overlaps)
+
+================================================================================
+                    TOP PLANTS BY TOTAL CLASS COUNT
+================================================================================
+
+Rank  Plant        Total Classes    Main    Plant_doc    FieldPlant
+----  ----------   -------------    ----    ----------   ----------
+  1   Tomato             25          10         9            6
+  2   Corn               22           4         3           15
+  3   Apple               7           4         3            0
+  4   Grape               6           4         2            0
+  5   Potato              5           3         2            0
+  6   Cassava             5           0         0            5
+  7   Pepper              4           2         2            0
+  8   Cherry              3           2         1            0
+  9   Peach               3           2         1            0
+ 10   Strawberry          3           2         1            0
+ 11   Blueberry           2           1         1            0
+ 12   Squash              2           1         1            0
+ 13   Soybean             2           1         1            0
+ 14   Raspberry           2           1         1            0
+ 15   Orange              1           1         0            0
+ 16   Background          1           1         0            0
+
+================================================================================
+                        DATASET OVERVIEW
+================================================================================
+
+Main Dataset (Plant_leaf_diseases_dataset_with_augmentation):
+  - Source: PlantVillage dataset with augmentation
+  - Total Classes: 39
+  - Total Images: ~61,486
+  - Format: Plant___Disease or Plant___healthy
+  - Purpose: Primary training dataset
+
+Plant_doc Dataset:
+  - Source: Secondary validation/test dataset
+  - Total Classes: 30
+  - Total Images: ~2,000+
+  - Format: Plant_disease_leaf or Plant_leaf
+  - Purpose: Validation and testing
+
+FieldPlant Dataset:
+  - Source: Real-world field images with bounding box annotations
+  - Total Classes: 27
+  - Total Images: 8,580 (after cropping from bounding boxes)
+  - Format: Plant___Disease or Plant___healthy (after processing)
+  - Purpose: Domain adaptation testing, real-world field conditions
+
+================================================================================
+                              NOTES
+================================================================================
+
+1. Class Naming Conventions:
+   - Main Dataset: Uses "Plant___Disease" format (e.g., "Tomato___Late_blight")
+   - Plant_doc: Uses "Plant_disease_leaf" format (e.g., "Tomato_leaf_late_blight")
+   - FieldPlant: After processing, matches Main Dataset format
+
+2. Class Overlaps:
+   - Some diseases appear in multiple datasets with different naming
+   - Example: "Corn___leaf_blight" (Main/FieldPlant) vs "Corn_leaf_blight" (Plant_doc)
+
+3. Unique Classes:
+   - FieldPlant contains unique classes not in other datasets
+   - Especially for Corn (15 unique classes) and Cassava (5 classes)
+
+4. Healthy Classes:
+   - Most plants have a "healthy" class in at least one dataset
+   - Format varies: "Plant___healthy" vs "Plant_leaf"
+
+5. Most Represented Plants:
+   - Tomato: 25 total classes (most diverse)
+   - Corn: 22 total classes (especially in FieldPlant)
+   - Apple: 7 total classes
+
+================================================================================
+        CLASS AVAILABILITY TABLE - 39 MAIN DATASET CLASSES
+================================================================================
+
+This table shows which of the 39 main dataset classes are available in the
+additional datasets (Plant_doc and FieldPlant).
+V = Class exists (or equivalent exists)
+X = Class does not exist
+
++----+--------------------------------------------------------+-----------+------------+
+| ID | Main Dataset Class Name                                | Plant_doc | FieldPlant |
++----+--------------------------------------------------------+-----------+------------+
+|  0 | Apple___Apple_scab                                     |     V     |     X      |
+|  1 | Apple___Black_rot                                      |     X     |     X      |
+|  2 | Apple___Cedar_apple_rust                               |     V     |     X      |
+|  3 | Apple___healthy                                        |     V     |     X      |
+|  4 | Background_without_leaves                              |     X     |     X      |
+|  5 | Blueberry___healthy                                    |     V     |     X      |
+|  6 | Cherry___healthy                                       |     V     |     X      |
+|  7 | Cherry___Powdery_mildew                                |     X     |     X      |
+|  8 | Corn___Cercospora_leaf_spot Gray_leaf_spot             |     V     |     V      |
+|  9 | Corn___Common_rust                                     |     V     |     V      |
+| 10 | Corn___healthy                                         |     X     |     V      |
+| 11 | Corn___Northern_Leaf_Blight                            |     V     |     V      |
+| 12 | Grape___Black_rot                                      |     V     |     X      |
+| 13 | Grape___Esca_(Black_Measles)                           |     X     |     X      |
+| 14 | Grape___healthy                                        |     V     |     X      |
+| 15 | Grape___Leaf_blight_(Isariopsis_Leaf_Spot)             |     X     |     X      |
+| 16 | Orange___Haunglongbing_(Citrus_greening)               |     X     |     X      |
+| 17 | Peach___Bacterial_spot                                 |     X     |     X      |
+| 18 | Peach___healthy                                        |     V     |     X      |
+| 19 | Pepper,_bell___Bacterial_spot                          |     V     |     X      |
+| 20 | Pepper,_bell___healthy                                 |     V     |     X      |
+| 21 | Potato___Early_blight                                  |     V     |     X      |
+| 22 | Potato___healthy                                       |     X     |     X      |
+| 23 | Potato___Late_blight                                   |     V     |     X      |
+| 24 | Raspberry___healthy                                    |     V     |     X      |
+| 25 | Soybean___healthy                                      |     V     |     X      |
+| 26 | Squash___Powdery_mildew                                |     V     |     X      |
+| 27 | Strawberry___healthy                                   |     V     |     X      |
+| 28 | Strawberry___Leaf_scorch                               |     X     |     X      |
+| 29 | Tomato___Bacterial_spot                                |     V     |     X      |
+| 30 | Tomato___Early_blight                                  |     V     |     X      |
+| 31 | Tomato___healthy                                       |     V     |     V      |
+| 32 | Tomato___Late_blight                                   |     V     |     X      |
+| 33 | Tomato___Leaf_Mold                                     |     V     |     X      |
+| 34 | Tomato___Septoria_leaf_spot                            |     V     |     X      |
+| 35 | Tomato___Spider_mites Two-spotted_spider_mite          |     V     |     X      |
+| 36 | Tomato___Target_Spot                                   |     X     |     X      |
+| 37 | Tomato___Tomato_mosaic_virus                           |     V     |     V      |
+| 38 | Tomato___Tomato_Yellow_Leaf_Curl_Virus                 |     V     |     V      |
++----+--------------------------------------------------------+-----------+------------+
+
+Summary:
+  Classes available in Plant_doc:  25 out of 39 (64.1%)
+  Classes available in FieldPlant: 6 out of 39 (15.4%)
+  Classes in both additional datasets: 6 (Corn___Cercospora_leaf_spot Gray_leaf_spot,
+                                          Corn___Common_rust, Corn___Northern_Leaf_Blight,
+                                          Tomato___healthy, Tomato___Tomato_mosaic_virus,
+                                          Tomato___Tomato_Yellow_Leaf_Curl_Virus)
+
+Note: Some classes may have equivalent names in other datasets:
+  - "Corn___Cercospora_leaf_spot Gray_leaf_spot" maps to "Corn_Gray_leaf_spot" in Plant_doc
+  - "Corn___Common_rust" maps to "Corn_rust_leaf" in Plant_doc
+  - "Corn___Northern_Leaf_Blight" maps to "Corn_leaf_blight" in Plant_doc
+  - "Corn___healthy" exists in FieldPlant as "Corn___healthy"
+  - "Corn___Cercospora_leaf_spot Gray_leaf_spot" exists in FieldPlant as "Corn___Gray_leaf_spot"
+  - "Corn___Common_rust" exists in FieldPlant as "Corn___rust_leaf"
+  - "Corn___Northern_Leaf_Blight" exists in FieldPlant as "Corn___leaf_blight"
+
+================================================================================
+                        END OF DOCUMENT
+================================================================================
+
+Generated: 2024
+Project: Plant Leaf Disease Detection
+
